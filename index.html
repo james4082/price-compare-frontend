@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+` <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -32,7 +32,6 @@ const logoMap = {
 };
 
 async function searchProducts(query) {
-  // Your backend URL is already inserted here
   const res = await fetch('https://price-compare-backend.onrender.com/search?q=' + query);
   const data = await res.json();
   displayProducts(data);
@@ -70,6 +69,9 @@ function displayProducts(products) {
   });
 }
 
+// Load default products on page load
+searchProducts('Mens Cotton Jacket');
+
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.trim();
   if (query.length > 0) searchProducts(query);
@@ -79,3 +81,4 @@ searchInput.addEventListener('input', () => {
 
 </body>
 </html>
+
